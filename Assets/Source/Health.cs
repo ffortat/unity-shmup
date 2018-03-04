@@ -22,7 +22,15 @@ public class Health : MonoBehaviour {
 			m_currentHealth -= damage;
 
 			if (m_currentHealth <= 0f) {
-				Destroy(gameObject);
+				if (tag == "Player") {
+					GetComponent<PlayerController>().Kill();
+				} else {
+					if (tag == "Enemy") {
+						GetComponent<AIController>().Kill();
+					}
+
+					Destroy(gameObject);
+				}
 			}
 		}
 	}

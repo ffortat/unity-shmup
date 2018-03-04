@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour {
 	private float m_spawnTimer;
 	private bool m_over;
 
+	private List<Transform> m_enemies;
+
 	// Use this for initialization
 	void Start () {
 		m_position = transform.position;
@@ -19,6 +21,8 @@ public class Spawner : MonoBehaviour {
 		m_timer = 0f;
 		m_spawnTimer = 0f;
 		m_over = false;
+
+		m_enemies = new List<Transform>();
 	}
 	
 	// Update is called once per frame
@@ -37,6 +41,9 @@ public class Spawner : MonoBehaviour {
 					if (location.quantity > 0) {
 						Transform enemy = (Transform)Instantiate(location.enemy);
 						enemy.position = m_position + location.location;
+						enemy.GetComponent<AIController>().AssignSpawner(this);
+
+						m_enemies.Add(enemy);
 
 						location.quantity -= 1;
 					}
@@ -47,5 +54,15 @@ public class Spawner : MonoBehaviour {
 		}
 
 		m_timer += Time.deltaTime;
+		
+		Debug.Log(m_enemies.Count);
+	}
+
+	public void RemoveEnemy(Transform enemy) {
+		m_enemies.Remove(enemy);
+	}
+
+	public bool IsOver() {
+		return m_over && m_enemies.Count == 0;
 	}
 }

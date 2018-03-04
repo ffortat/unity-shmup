@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114083617793472890}
   m_Layer: 11
   m_Name: Private
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +140,7 @@ MonoBehaviour:
   m_sinAmplitude: 0.5
   m_sinSpeed: 0.3
   m_speed: 0.7
+  m_spawner: {fileID: 0}
 --- !u!114 &114753065546339054
 MonoBehaviour:
   m_ObjectHideFlags: 1
