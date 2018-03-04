@@ -54,8 +54,6 @@ public class Spawner : MonoBehaviour {
 		}
 
 		m_timer += Time.deltaTime;
-		
-		Debug.Log(m_enemies.Count);
 	}
 
 	public void RemoveEnemy(Transform enemy) {
