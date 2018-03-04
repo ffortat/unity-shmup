@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ammunition : MonoBehaviour {
 	public Vector2 m_velocity;
 	public float m_damage = 10f;
+	public bool m_persist = false;
 
 	private Rigidbody2D m_rigidbody;
 
@@ -19,15 +20,15 @@ public class Ammunition : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collider other) {
-		Debug.Log("I triggered");
-		
+	void OnTriggerEnter2D(Collider2D other) {
 		Health health = other.GetComponent<Health>();
 
 		if (health) {
 			health.Hit(m_damage);
 		}
 
-		Destroy(gameObject);
+		if (!m_persist) {
+			Destroy(gameObject);
+		}
 	}
 }
