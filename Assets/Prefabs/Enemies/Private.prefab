@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef126136703c854a90deae485532abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_cooldown: 1.5
+  m_cooldown: 2
   m_weapons:
   - {fileID: 4527370288021186}
   m_ammunition: {fileID: 4600308558548754, guid: 560bd024d71a8e74fb57bfbe0557788a,
@@ -140,7 +140,6 @@ MonoBehaviour:
   m_sinAmplitude: 0.5
   m_sinSpeed: 0.3
   m_speed: 0.7
-  m_spawner: {fileID: 0}
 --- !u!114 &114753065546339054
 MonoBehaviour:
   m_ObjectHideFlags: 1
